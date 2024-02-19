@@ -3,3 +3,4 @@ The purpose of the project is to develop an “Online News Portal System” and 
 Now-a-days we live in age of Information Communication and Technology (ICT). Form morning to night, we need help of the technology. We can’t think a single moment without technology. Most of the words depends on web application. We have developed our project so that we can aware the people.
 
  The project is developed by using Php and MySQL on the back end. For the front end, we use HTML5, CSS and JS.
+![image](https://github.com/Unique982/Online-News-Portal-System/assets/133880428/03ffccde-7870-4ea1-9193-36d1b4b094e2)
