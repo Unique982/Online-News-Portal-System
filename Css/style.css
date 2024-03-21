@@ -1,0 +1,533 @@
+@import url(https://fonts.googleapis.com/css?family=Playfair:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair', sans-serif;
+    text-decoration: none;
+}
+
+/* ============================================================================================================== */
+                                 /*! Admin and Uer Start header */
+/* ============================================================================================================== */
+header{
+    position:fixed ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(212, 204, 204);
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.navbar .logo{
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+    font-size:1.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+} 
+ span{
+    color: blue;
+}
+ .navbar .menu-item{
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    font-size: 20px;
+}
+.navbar  a{
+    color: #020000;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+.navbar a:hover,.navbar a.active{
+    border-bottom:2px solid red;
+}
+#close-menu-btn{
+  position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    display:none;
+}
+#menu-btn{
+    font-size: 25px;
+    cursor: pointer;
+  display: none;
+}
+/* ============================================================================================================== */
+                                       /*! End header part  */
+/* ============================================================================================================== */
+
+/* ============================================================================================================== */
+                                    /*? Start Login from admin  */
+/* ============================================================================================================== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../image/index.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.login-content {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rbga(0, 0, 0, .2);
+    color: #fff;
+    border: 10px;
+    padding: 30px 40px;
+}
+.login-content .title {
+    font-size: 30px;
+    text-align: center;
+}
+.login-content .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.login-content .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    color: #fff;
+    font-size: 16px;
+    padding: 20px 45px 20px 20px;
+}
+
+.login-content .input-box input::placeholder {
+    color: #fff;
+
+}
+.login-content .btn {
+    width: 100%;
+    height: 40px;
+    background: black;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba();
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+}
+/* ============================================================================================================== */
+                                            /*! End Login From*/
+/* ============================================================================================================== */
+
+/* ============================================================================================================== */
+                                              /*? From*/
+/* ============================================================================================================== */
+.add_container{
+    max-width: 600px;
+    background: #fff;
+    margin: 80px auto;
+    padding: 20px;
+    border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+ }
+ .head{
+     color: #fafff9;
+    background-color: rgb(108, 99, 117);
+       padding: 2px ;
+     font-size: 25px;
+     font-weight: 700px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    /* color: #fff; */
+ }
+  .add_container.input-box{
+     margin-bottom: 20px;
+     position: block;
+ }
+   .add_container label{
+     display: block;
+     margin-bottom: 5px;
+     text-transform: uppercase;
+ }
+   .add_container input[type="text"],input[type="email"],input[type="number"],[type="password"],[type="file"],[type="select"],textarea,select{
+     width: 100%;
+     height: 10%;
+     padding: 10px;
+     border-radius: 10px;
+     box-sizing: border-box;
+     border:1px solid;
+     font-size: 15px;
+ }
+ textarea{
+     height: 150px;
+     resize: none;
+ }
+  .add_container .input-box input:focus,input select:focus{
+         outline: 0;
+         border-color:#777 ;
+      }
+      .input-box.success input{
+        border-color: 2px solid #39df7e;
+     }
+     .input-box.error input{
+        border-color: #df3434;
+     }
+   
+     .input-box.error small{
+        font-size: 20px;
+      visibility: visible;
+     }
+     .input-box small{
+      color: #df3434;
+     
+      left: 20;
+      visibility:hidden ;
+      
+     }
+ 
+      .add_container .btn{
+    width: 100%;
+    height: 40px;
+    background: black;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 5px ;
+     font-size: 25px;
+     font-weight: 700px;
+ }
+/* ============================================================================================================== */
+/*! End Post form*/
+/* ============================================================================================================== */
+
+/* ============================================================================================================== */
+/* Table Styleing  */
+/* ============================================================================================================== */
+button{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+ 
+   }
+ td button:nth-child(1){
+    background-color: #42c850;
+    padding: 10px;
+  
+ }
+
+ td button:nth-child(2){
+    background: red;
+    padding: 10px;
+
+ }
+ 
+   .add_new{
+    padding: 10px 20px;
+    background-color: blue;
+    color: #fff;
+    
+   }
+   .table_container{
+   margin-top:40px;
+    width: 100%;
+   }
+   .table_content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 26px;
+    background-color: #efefef;
+   }
+   .table_content p{
+    color: #000;
+   }
+   .table_data{
+    /* height: 500px; */
+    /* height: calc(100vh -100px); */
+    overflow: auto;
+  
+   }
+   table{
+    width: 100%;
+    min-width: 900px;
+    table-layout: fixed;
+    border-collapse: collapse;
+   }
+   thead th{
+    /* position: sticky; */
+    top: 0;
+    background-color:  #04ff1d;
+    color: #000;
+    font-size: 15px;
+    padding: 10px;
+   }
+   tr,td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    background-color: lightblue;
+    word-break: break-all;
+    text-align: center;
+    /* border: 1px solid rgb(175, 163, 163); */
+    
+   }
+   ::-webkit-scrollbar{
+    height: 6px;
+    width: 8px;
+ }
+ ::-webkit-scrollbar-track{
+    box-sizing: inset 0 0 6px rgba(0,0,0,0.3);
+ }
+ ::-webkit-scrollbar-thumb{
+    box-sizing: inset 0 0 6px rgba(0,0,0,0.3);
+}
+/* ============================================================================================================== */
+                                              /*! End Table Styling*/
+/* ============================================================================================================== */
+
+/* ============================================================================================================== */
+                                    /*?Pagination Code Start.....  */
+/* ============================================================================================================== */
+   .pagination_container{
+   
+    display:flex;
+    justify-content: center;
+  width: 100%;
+   padding: 20px 20px;
+   background:lightblue;
+ }
+ .pagination_container li{
+    list-style: none;
+    display: inline-block;
+ }
+ .pagination_container li a{
+   background-color: #fff;
+   text-align: center;
+   text-decoration: none;
+   color: #333;
+   height: 30px;
+   width: 30px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   margin: 8px;
+   box-shadow: inset 0 5 10px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.5);
+   transition: 0.5s;
+   display:flex;
+}
+.pagination_container li a:active:hover{
+    background-color: yellow;
+}
+ /* ============================================================================================================== */
+                             /*! End paination Code*/
+ /* ============================================================================================================== */
+
+/* ============================================================================================================== */
+                             /*? Dashboard Code Start here...*/
+ /* ============================================================================================================== */
+
+main{
+    margin-top: 30px;
+}
+.dashboard_container{
+     padding: 1.3rem 1rem;
+     background: #E9edf2;
+}
+.dashboard_container h2, .dashboard_container small{
+    color: 000;
+}
+
+
+/* .dashboard-content{
+    margin-top: 40px;
+    padding: 2rem 1.5rem;
+    min-height: calc(100vh -90px);
+    background: #f1f5f9;
+  
+}
+.card{
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-top: 1rem;
+}
+.card-single{
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rbga(0, 0, 0, .2);
+}
+.card-single span:first-child{
+    color:#03f627;
+}
+.card-single span:last-child{
+font-size: 32px;
+}
+.card-single i{
+    color: #17e100;
+    padding: 16px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 50%;
+    background: red;
+} */
+/* ============================================================================================================== */
+                                         /*! End Dashboard Code*/
+ /* ============================================================================================================== */
+
+
+/* ============================================================================================================== */
+                                    /*? FrontEnd Post box code start here */
+ /* ============================================================================================================== */
+/*  */
+ 
+
+
+ #post-container{
+ 
+
+}
+#post-container.post{
+   
+}
+
+/* ============================================================================================================== */
+                                       /*! End Post Code*/
+ /* ============================================================================================================== */
+
+
+/* ============================================================================================================== */
+                                          /*?Resne Styling Code Here...*/
+ /* ============================================================================================================== */
+
+#resent-container{
+
+}
+
+/* ============================================================================================================== */
+                                         /*! End Resent Post Code*/
+ /* ============================================================================================================== */
+
+
+/* ============================================================================================================== */
+                                            /*? Single Post Code...*/
+ /* ============================================================================================================== */
+
+#single-container{
+
+}
+/* ============================================================================================================== */
+                                           /*! End Single Post Code*/
+/* ============================================================================================================== */
+
+/* ============================================================================================================== */
+                                            /*? Footer  Code Here... (Admin/user page footer code...)*/
+/* ============================================================================================================== */
+.footer{
+    margin-bottom: 100%;
+    position:fixed;
+    width: 100%;
+    height: auto;
+}
+.footer-bottom{
+    background: #e1e1e7;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+ font-size: 18px;
+ word-spacing: 2px;
+ text-transform: capitalize;
+}
+/* .footer-bottom span{
+    color:rgb(0, 223, 71);
+    text-decoration: uppercase;
+    opacity: 1;
+    font-weight: bold;
+} */
+
+/* Footer Page Styling CSS  end */
+
+/* ============================================================================================================== */
+                                           /*! End Footer Code*/
+/* ============================================================================================================== */
+
+
+/* ============================================================================================================== */
+                                           /*? Media Query Code....*/
+/* ============================================================================================================== */
+
+@media (max-width:767px){
+    header{
+        padding: 5px;
+    }
+    .navbar .logo{
+        font-size: 1.7rem;
+    }
+    .navbar .menu-item{
+        position: fixed;
+        top: 0; left: -250px;
+        width: 250px;
+        height: 100vh;
+        background: #000;
+        flex-direction: column;
+        padding: 70px 40px 0;
+        transition: left 0.2s ease;
+    }
+    .navbar a{
+        color: #fff;
+    }
+    #close-menu-btn ,#menu-btn{
+    display: block;
+     color: #fff;
+     font-size: 25px;
+    
+    }
+
+    header.show-menu::before{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+    }
+    header.show-menu .navbar .menu-item{
+        left: 0;
+    }
+}
+/* ============================================================================================================== */
+                                           /*! End Media Query Code*/
+/* ============================================================================================================== */
+/*! ---------> ---------> ---------> ---------> ---------> ---------> ---------> ---------> ---------> ----------> */
+/*? ---------> ---------> ---------> ---------> ---------> ---------> ---------> ---------> ---------> ----------> */
+/*! ---------> ---------> ---------> ---------> ---------> ---------> ---------> ---------> ---------> ----------> */
+/* ============================================================================================================== */
+/*!---------> ---------> ---------> ---------> --------->  End Complete Project ....  ---------> --------->       */
+ /*!---------> ---------> ---------> ---------> --------->  Online News Portal System The End   --------->        */
+/* ============================================================================================================== */
