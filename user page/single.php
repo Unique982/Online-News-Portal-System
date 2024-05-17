@@ -3,60 +3,84 @@ include "header.php";
 
 ?>
 
-<style>
-    #single-container{
-padding: 1vw 2vw;
-    }
-    #single-container .Posts{
-width: 100%;
-margin-top: 30px;
-    }
-    #single-container .Posts  p{
-text-align: justify;
-padding-bottom: 60px !important;
-    }
-    #single-container  .single-img img{
-width: 100%;
-
-object-fit: cover;
-
-
-    }
-    .add-new {
-    color: #fff;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-    border-radius: 10px;
-    text-decoration: none;
-   padding: 10px 20px;
-   color: rgb(238, 229, 229); 
-   background-color: rgb(0, 49, 244);
- }
-    @media (max-width:475px) {
-     
-        #single-container .Posts{
-width: 100%;
-margin-top: 10px;
+</head>
+<style>
+   
+    .blog-container{
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+padding: 8vw;
     }
-    #single-container .Posts  p{
-text-align: justify;
-padding-bottom: 60px !important;
+    .blog-container .blogs {
+  width: 80%;
+  margin: 0 auto;
     }
-    #single-container  .single-img img{
-width: 100%;
-height: 50vh;
-object-fit: cover;
-
-
+    
+    .blog-container .blogs img{
+        width: 100%;
+        border-radius: 19px;
     }
-}
+    .blog-container .blogs .post{
+        padding-bottom: 60px;
+    }
+    .blog-container .blogs .post h3{
+        color:red;
+        padding: 15px 0 10px 0;
+    }
+    .blog-container .blogs p{
+ text-align: justify;
+ padding-bottom: 60px;
+    }
+    @media (max-width: 769px) {
+            .blog-container {
+                padding: 8vw 4vw;
+                flex-direction: column;
+            }
+            
+            .blog-container .blogs {
+                width: 100%;
+                margin-top: 30px;
+            }
+            .blog-container .blogs img {
+                width: 100%;
+                height: 50vh;
+              border-radius: 19px;
+              object-fit: cover;
+            }
+        }
+        @media (max-width: 469px) {
+            .blog-container {
+                padding: 8vw 4vw;
+                flex-direction: column;
+            }
+            
+            .blog-container .blogs {
+                width: 100%;
+                margin-top: 70px;
+            }
+            .blog-container .blogs img {
+                width: 100%;
+                height: 50vh;
+              border-radius: 19px;
+              object-fit: cover;
+            }
+        }
 </style>
 <body>
-
-    <div class="single-container" id="single-container">
-    <?php 
-     include "database.php";
+        <section class="blog-container">
+            <div class="blogs">
+            <?php 
+     include ("../database/database.php");
+     if(isset($_GET['id'])){
     $post_id = $_GET['id'];
-          $sql = "SELECT news_post.post_id, news_post.post_title, news_post.post_description, news_post.category,news_post.author, news_post.date, post_category.category_name, add_user.username, news_post.category ,news_post.post_Uploadimg FROM news_post 
+    $sql = "SELECT news_post.post_id, news_post.post_title, news_post.post_description, news_post.category,news_post.author, news_post.date, post_category.category_name, add_user.username, news_post.category ,news_post.post_Uploadimg FROM news_post 
     LEFT JOIN post_category ON news_post.category =post_category.category_id
     LEFT JOIN add_user ON news_post.author = add_user.user_id 
     WHERE news_post.post_id = {$post_id}";
@@ -64,33 +88,45 @@ object-fit: cover;
      $result =mysqli_query($conn,$sql) or die("Query Failed");
      if(mysqli_num_rows($result)>0){
         while($row= mysqli_fetch_assoc($result)){
+        // inde x 
         
     ?>
-        <div class="Posts">
-            <div class="single-img">
-            <img src="../admin/Post UploadImg/<?php  echo $row['post_Uploadimg'];?>" alt="">
- <h3>
- <?php  echo $row['post_title']?>
- </h3>
- <p>
- <?php  echo $row['post_description'];?>
- </p>
- <a href="#" class="add-new">Read Next</a>
-            </div>
-
-        </div>
-       
- <?php } }
- else{
-    echo "<h2>No Record Found. </h2>";
- } ?>
-    </div>
+                <div class="post">
+                <img src="../admin/Post UploadImg/<?php  echo $row['post_Uploadimg'];?>" alt="">
+                <div class="date">
+                        <span>
+                            <i class="fa-solid fa-tag"></i><a href='Category.php?category_id=<?php echo $row['category']; ?>'><?php echo $row['category_name']; ?></a>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-user"></i><a href='author.php?aid=<?php echo $row['author']; ?>'><?php echo $row['username']; ?></a>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-calendar-days"></i><a href="#time"><?php echo $row['date']; ?></a>
+                        </span>
+                        </div>    
+                <h3><?php  echo $row['post_title']?></h3>
+                       <p>
+                       <?php  echo $row['post_description'];?>
+                       </p>
+                    
+                    
+                </div>
+                
+                <?php } } }?>
+                <hr>
+               
+               
+    <?php 
+    include 'comment.php';
+               ?>
+    </section>
+   
     
-
-
     
     <?php
+  
+   include 'footer.php';
    
-    include 'footer.php';
-    
-    ?>
+   ?>
+</body>
+</html>
