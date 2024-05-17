@@ -1,6 +1,6 @@
 
 <?php 
-include 'database.php';
+ include ("../database/database.php");
 include "header.php";
  if($_SESSION['user_role'] == '0'){
     header("Location:Post.php");
@@ -17,7 +17,7 @@ if(mysqli_num_rows($result) > 0){
 
 }
 else{
-    $sql1 ="INSERT INTO post_category(category_name) VALUES('$category')";
+    $sql1 ="INSERT INTO post_category(category_name,status) VALUES('$category',1)";
     if(mysqli_query($conn,$sql1)){
         header("location:Category.php");
         echo "<script>alert('New Category Add');</script>";
@@ -30,12 +30,14 @@ else{
       <!-- Html Code in from Start here -->
       <div class="add_container">
             <h1 class="head">Category Add</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ;?>" method="POST" autocomplete="off">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ;?>" method="POST" autocomplete="off" name="cat" onsubmit="return validationCategory()">
         <div class="input-box">
                 <label>Category Name: <span style="color:red">*</span></label>
-                <input type="text" name="caterogy" id="category" placeholder="Enter Category Name" required/>
+                <input type="text" name="caterogy" id="category" placeholder="Enter Category Name">
                 <small>Error Message</small>    
             </div>
+            <!-- New code today -->
+            
                
             <input type="submit" class="btn" name="Save" value="Add">
         </form>
