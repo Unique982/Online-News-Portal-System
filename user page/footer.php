@@ -1,30 +1,17 @@
+
 <div id="footer">
-    <div class="footer-content">
-        <h2>Unique Online Update</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis vel assumenda repudiandae at iure nihil velit! Vitae amet doloremque et expedita doloribus. Doloremque aut cumque exercitationem dignissimos placeat voluptatem voluptates?
-
-        </p>
-        <ul class="socials-icon">
-            <li>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-brands fa-google"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            </li>
-        </ul>
-    </div>
     <div class="footer-bottom">
-        <p>copyright &copy;2080 Unique Online Update. designed by<span> Unique Neupane </span></p>
+    <?php
+ include ("../database/database.php");
+$sql= "select * from setting1";
+$result= mysqli_query($conn, $sql) or die("Query failed");
+if(mysqli_num_rows($result)>0){
+    while ($row =mysqli_fetch_array($result)){
 
+?>     
+        <p><?php echo $row['footer'];?></p>
+      
+   <?php  }}?>
     </div>
 </div>
 </div>
