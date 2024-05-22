@@ -1,5 +1,5 @@
 <?php
-include 'database.php';
+ include ("../database/database.php");
 
 // upload file 
 if(isset($_FILES['UploadImg']['name'])){
