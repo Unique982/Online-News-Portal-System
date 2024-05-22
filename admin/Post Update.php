@@ -1,7 +1,8 @@
 <?php
-include 'database.php';
 include "header.php";
-if ($_SESSION['user_role'] == '0') {
+ include ("../database/database.php");
+
+if ($_SESSION['user_role'] == 0) {
 
   $post_id = $_GET['id'];
 
@@ -14,7 +15,7 @@ if ($_SESSION['user_role'] == '0') {
 }
 ?>
 <?php
-include 'database.php';
+
 $post_id = $_GET['id'];
 
 $sql = "SELECT news_post.post_id, news_post.post_title, news_post.post_description,news_post.category, news_post.post_Uploadimg,post_category.category_name, news_post.category FROM news_post
@@ -33,14 +34,14 @@ if (mysqli_num_rows($result) > 0) {
             <h1 class="head">Update Post</h1>
 
             <!-- Start Form code -->
-            <form action="post_save_postupdate.php" method="POST" enctype="multipart/form-data">
+            <form action="post_save_postupdate.php" method="POST" enctype="multipart/form-data" name="post" id="form" onsubmit="return validationPost()">
             <div class="input-box">
             <input type="hidden" name='post_id' value="<?php echo $row['post_id']; ?>">
           </div>  
             <!--Title filed  -->
             <div class="input-box">
                 <label>Title <span style="color:red;">*</span></label>
-                <input type="text" name="title" value="<?php echo $row["post_title"]; ?>">
+                <input type="text" name="title"id="title" value="<?php echo $row["post_title"]; ?>">
              <small>Error Message</small>
             </div> 
                  <!-- Description filed -->
@@ -55,11 +56,11 @@ if (mysqli_num_rows($result) > 0) {
                 <select name="category" id="category">
                 <option disabled selected> Select </option>
               <?php
-              include 'database.php';
-              $sql1 = "SELECT * FROM post_category";
+             
+              $sql1 = "SELECT * FROM post_category WHERE  status < 1";
               $result1 = mysqli_query($conn, $sql1) or die("query failed");
               if (mysqli_num_rows($result1) > 0) {
-                while ($row1 = mysqli_fetch_array($result1)) {
+                while ($row1 = mysqli_fetch_assoc($result1)) {
 
 
 
@@ -83,7 +84,7 @@ if (mysqli_num_rows($result) > 0) {
                 <label>Image <span style="color:red;">*</span></label>
                 <input type="file" name="new-image">
             <img src="Post UploadImg/<?php echo $row['post_Uploadimg']; ?>" width="200px" height="200px">
-            <input type="hidden" name="old_image" vlaue="<?php echo $row['post_Uploadimg']; ?>">
+            <input type="hidden" name="old_image" value="<?php echo $row['post_Uploadimg']; ?>" id="image">  <!-- Old image Upload file -->
              <small>Error Message</small>
             </div> 
             <input type="submit" name="Post" value="Update" class="btn">
