@@ -1,5 +1,5 @@
 <?php
-include "database.php";
+ include ("../database/database.php");
 
 include "header.php";
 
@@ -8,9 +8,10 @@ if ($_SESSION['user_role'] == '0') {
 }
 if (isset($_POST['Edit'])) {
     $id = $_POST['id'];
-    $category = $_POST['category'];
-
-    $sql1 = "UPDATE post_category SET `category_name`= '$category' WHERE category_id='$id'";
+    $category = mysqli_real_escape_string($conn,$_POST['category']);
+    $status =  mysqli_real_escape_string($conn, $_POST['status']);
+// new code add
+    $sql1 = "UPDATE post_category SET `category_name`= '$category',`status`='$status' WHERE category_id='$id'";
     // $result =mysqli_query($conn, $sql);
     if (mysqli_query($conn, $sql1)) {
         header("Location:Category.php? msg=data Update Successfully");
@@ -33,16 +34,18 @@ if (isset($_POST['Edit'])) {
             while ($row = mysqli_fetch_assoc($result)) {
 
         ?>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" autocomplete="off">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" name="cat" method="POST" autocomplete="off" onsubmit="return validationCategory()">
                     <input type="hidden" name="id" value="<?php echo $row["category_id"]; ?>">
                     <div class="input-box">
                         <label>Category Name:</label>
                         <input type="text" name="category" value="<?php echo $row['category_name']; ?>" id="category" placeholder="Enter Category Name">
-                        <small>Error Message</small>
+                        <small>Error Message</small>    
                     </div>
+                    <!-- New code Add -->
+                    
+                    <!-- End Code here -->
                     <input type="submit" name="Edit" value="Save" class="btn">
-
-                    <a href="Category.php" class="cancel"class="btn">Cancel</a>
+                   
                 </form>
 
 
