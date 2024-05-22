@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+include ("../database/database.php");
 ?>
 
       <!-- Start Html Code Here -->
@@ -7,7 +8,7 @@ include "header.php";
             <h1 class="head">Add Post</h1>
 
             <!-- Start Form code -->
-            <form action="Post Save.php" method="POST" enctype="multipart/form-data" id="form">
+            <form action="Post Save.php" method="POST" enctype="multipart/form-data" id="form" name="post" onsubmit="return validationPost()">
               <!--Title filed  -->
             <div class="input-box">
                 <label>Title <span style="color:red;">*</span></label>
@@ -26,8 +27,8 @@ include "header.php";
                 <select name="category" id="category">
           <option disabled selected>Select</option>
           <?php
-          include 'database.php';
-          $sql = "SELECT * FROM post_category";
+       
+          $sql = "SELECT * FROM post_category WHERE  status < 1";
           $result = mysqli_query($conn, $sql) or die("query failed");
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
@@ -44,8 +45,11 @@ include "header.php";
                 <input type="file" name="UploadImg"  id="image">
              <small>Error Message</small>
             </div> 
+            
             <input type="submit" name="POST" value="Post" class="btn">
+          
             </form>
         </div>
          <!--End Html Code Here-->
-      <!-- <script src="../js/script.js"></script> -->
+         
+      
