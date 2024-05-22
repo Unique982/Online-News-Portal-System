@@ -1,4 +1,10 @@
-    
+<style>
+  body{
+  
+    background: lightblue;
+  }
+
+</style>    
     <?php
     include "header.php";
    if($_SESSION["user_role"] == '0'){
@@ -7,8 +13,8 @@
 
 
    // Calculate The Pagaination Code here 
-     include 'database.php';
-     $limit = 7;
+   include ("../database/database.php");
+     $limit = 10;
     
      // pagination code
           if(isset($_GET['page'])){
@@ -46,6 +52,8 @@
             <th>ID</th>
             <th>Category Name</th>
             <th>No.Of Post</th>
+            <th>Status</th>
+           
             <th>Action</th>   
         </tr>
         </thead>
@@ -58,6 +66,20 @@
         <td class="id"><?php echo $serial_number ?></td>
         <td><?php echo $row['category_name']?></td>
         <td><?php echo $row['category_post']?></td>
+        <!-- New code add today -->
+     
+                  <td>
+                  <form action="category_show and_hidden.php" method="POST">
+              <input type="hidden" name="id" value="<?php echo $row['category_id']; ?>">
+              <!-- Status check if -->
+              <?php if ($row['status'] == 0) {
+                echo "<button type='submit' name='hidden'class='btn' style='color:#fff;font-size:15px;background:green;'>Hidden</a></button>";
+                  } else {
+                    echo "<button type='submit' name='show'class='btn' style='color:#fff;font-size:15px;background:blue'>Show</a></button>";
+                  }
+                  ?>
+                </form>
+                  </td>
         <td>
         <button><a href="Category Update.php?id=<?php echo $row["category_id"]; ?>" class="btn"><i class="fa-solid fa-pen-to-square"></i></a></button> 
         <button><a href="Category Delete.php?id=<?php echo $row['category_id']; ?>"clas="btn"><i class="fa-solid fa-trash"></i></a></button>       
@@ -66,7 +88,7 @@
         $serial_number++;
         ?>
         </tr>
-        <?php } ?>
+        <?php } }?>
       </tbody>
        
     </table>
@@ -100,7 +122,7 @@ echo'  <li class="" '.$active.'"><a href="Category.php?page='.$i.'">'.$i.'</a></
     }
 if($total_page > $page){
   echo '<li><a href="Category.php?page='.($page + 1).'"><i class="fa-solid fa-angles-right"></i></a></li>';
- } }  }
+ } }  
   // Pagination Code End Here
      ?>
    </div>
