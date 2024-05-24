@@ -1,11 +1,11 @@
 <?php
 include "header.php";
-if ($_SESSION['user_role'] == '0') {
-    header("Location:Post.php");
+if ($_SESSION['user_role'] == '0') {// reporter 
+    header("Location:Post.php");// 
 }
-include 'database.php';
+include ("../database/database.php");
 if (isset($_POST['save'])) {
-    $user = mysqli_real_escape_string($conn, $_POST['user']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
@@ -13,16 +13,20 @@ if (isset($_POST['save'])) {
     $role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
 // Query 
-    $sql = "SELECT * FROM `add_user`  WHERE username='$user' OR user_email='$email'";
+    $sql = "SELECT * FROM `add_user`  WHERE username='$username' OR user_email='$email'";
     $result = mysqli_query($conn, $sql) or die("Query Failed");
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<script>alert('UserName already exists');</script>";
+        echo "<script>alert('UserName already exists')</script>";
+        
     } else {
-        $sql1 = "INSERT INTO `add_user` (username,user_email,user_phone,user_address,user_password,role) VALUES('$user','$email',$phone,'$address','$password','$role')";
+    
+        $sql1 = "INSERT INTO `add_user` (username,user_email,user_phone,user_address,user_password,role) VALUES('$username','$email','$phone','$address','$password','$role')";
         if (mysqli_query($conn, $sql1)) {
-            header("location:User.php");
-            echo "<script>alert('New User Add ');</script>";
+            header("location:User.php?msg= New User Added Successfully");
+       
+           
+          
         }
     }
 }
@@ -32,12 +36,12 @@ if (isset($_POST['save'])) {
             <h1 class="head">Add New User</h1>
 
             <!-- Start Form code -->
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" autocomplete="off" id="userform"> 
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="form"method="POST" autocomplete="off" name="userdata" onsubmit="return validationForm()"> 
             <!--User filed  -->
             <div class="input-box">
             <label>User Name<span style="color:red">*</span></label>
                 <input type="text" name="username" id="username" placeholder="Enter Your Username ">
-             <small>Error Message</small>
+                <small>Error Message</small>
             </div> 
                  <!-- Eamil filed -->
                  <div class="input-box">
@@ -60,10 +64,11 @@ if (isset($_POST['save'])) {
                   <!-- User Role filed -->
                 <div class="input-box">
                     <label>User Role <span style="color:red">*</span></label>
-                    <select name="role">
+                    <select name="role" id="role">
                         <option disabled selected>Select</option>
-                        <option value="0">Normal User</option>
+                        <option value="0">Reporter</option>
                         <option value="1">Admin</option>
+                        
                     </select>
                     <small>Error Message</small>
                 </div>
@@ -76,4 +81,7 @@ if (isset($_POST['save'])) {
                 <input type="submit" name="save" value="Save" class="btn">
             </form>
                  </div>
-                 <script src="../js/script.js"></script>
+                
+                
+                
+                
