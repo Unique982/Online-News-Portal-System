@@ -15,7 +15,7 @@ $sql = "DELETE FROM news_post WHERE post_id = {$post_id};";
 $sql  .= "UPDATE post_category SET category_post = category_post -1  WHERE category_id={$category_id}";
  
 if(mysqli_multi_query($conn, $sql)){
-   header("location:Post.php");
+   header("location:Post.php ?msg=Deleted Successfully");
 }
 else{
    echo "Failed";
