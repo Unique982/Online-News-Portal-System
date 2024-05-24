@@ -9,8 +9,8 @@ $id = $_GET["id"];
 $sql="DELETE FROM post_category WHERE category_id='$id'";
 $result = mysqli_query($conn,$sql);
 if($result){
-    header("Location: Category.php");
-    echo "<script>alert('Data deleted Successfully');</script>";
+    header("Location: Category.php?msg=Deleted Successfully");
+  
     
 }
 else{
