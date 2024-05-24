@@ -19,8 +19,8 @@ if(mysqli_num_rows($result) > 0){
 else{
     $sql1 ="INSERT INTO post_category(category_name,status) VALUES('$category',1)";
     if(mysqli_query($conn,$sql1)){
-        header("location:Category.php");
-        echo "<script>alert('New Category Add');</script>";
+        header("location:Category.php?msg=New Category Added successfully");
+
     }
 }
 }
