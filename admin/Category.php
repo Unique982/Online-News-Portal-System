@@ -38,6 +38,10 @@
    <div class="table_container">
         <div class="table_content">
             <p>Category Page</p>
+           <?php if(isset($_GET['msg'])){
+       $msg = $_GET['msg'];
+        echo "<p style='color:green;font-weight:bold;font-size:20px; align-text:center'>$msg</p>";
+            }?>
             <div>
             <button class="add_new"><a class="add_new"href="Category Add.php">+ ADD</a></button>
             </div>
