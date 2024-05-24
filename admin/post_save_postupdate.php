@@ -53,11 +53,11 @@ if($old_category != $category){
 }
  $result =mysqli_multi_query($conn, $query);
  if($result){
-    header("location:Post.php");
+    header("location:Post.php?msg=Post Updated Successfully");
 
  }
  else{
-    echo "Query Failed";
+    echo "Query Failed ";
  }
 
 ?>
