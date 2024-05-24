@@ -8,8 +8,8 @@ $id = $_GET["id"];
 $sql="DELETE FROM add_user WHERE user_id='$id'";
 $result = mysqli_query($conn,$sql);
 if($result){
-    header("Location: User.php");
-    echo "<script>alert('Data deleted Successfully');</script>";
+    header("Location: User.php?msg= Deleted Successfully");
+   
     
 }
 else{
