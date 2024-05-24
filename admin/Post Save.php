@@ -46,10 +46,10 @@ $date = date("Y-D-M");
 $sql ="INSERT INTO news_post (post_title, post_description, category, author, date, post_Uploadimg) VALUES ('{$title}', '{$description}', '{$category}', {$author}, '{$date}', '{$new_name}');";
 $sql .="UPDATE post_category SET category_post = category_post + 1 WHERE category_id = {$category}";
   if(mysqli_multi_query($conn, $sql)){
-    header("location: Post.php");
+    header("location: Post.php?msg=Update successfully");
 }
 else{
-    echo "<div class= 'alert alert-danger'>Failed..</div>"; 
+    echo "Update Failed";
 }
 
 
