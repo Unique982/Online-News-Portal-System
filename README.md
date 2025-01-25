@@ -60,7 +60,7 @@ User Module (Visitor)
 
 <h1>Installtion</h1>
 <p>To run the project locally, follow these steps: Clone the repository</p>
-git clone https://github.com/Unique982/Online-News-Portal-System/tree/main
+git clone: https://github.com/Unique982/Online-News-Portal-System.git
 <p>create a New database named "news".</p>
 <p>import the news.sql file into your database</p>
 
