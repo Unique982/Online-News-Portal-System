@@ -3,9 +3,9 @@
 The purpose of the project is to develop an “Online News Portal System” and provides news for all viewers. Online news portal allows customers to read up to date news related to many fields like Entertainment, National and International events, Sports, Politics, Education etc., without any payment or login. New News can be added or posted only by the admin and only admin have the authorization to update or delete any news. Admin has the right to give authority to other to update add or delete news. It will be a popular source of information for people who want to stay informed about current events and news from around the world. The online news portal has been developed to override the problem prevailing in the practicing manual system. The portal provides a suitable and easy display for which large population around the word can learn or will have the knowledge about the world. No format knowledge is needed to use this portal.
 
 Now-a-days we live in age of Information Communication and Technology (ICT). Form morning to night, we need help of the technology. We can’t think a single moment without technology. Most of the words depends on web application. We have developed our project so that we can aware the people.
-<table>
+<table border='1'>
  <tr><th>Project Name</th>
- <td>Online News Portal</td>
+ <td>Online News Portal System</td>
  </tr>
   <tr><th>Language Used</th>
  <td>HTML, CSS, Javascript, PHP,MYSQL</td>
@@ -60,7 +60,7 @@ User Module (Visitor)
 
 <h1>Installtion</h1>
 <p>To run the project locally, follow these steps: Clone the repository</p>
-https://github.com/Unique982/Online-News-Portal-System/tree/main
+git clone https://github.com/Unique982/Online-News-Portal-System/tree/main
 <p>create a New database named "news".</p>
 <p>import the news.sql file into your database</p>
 
