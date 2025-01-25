@@ -8,11 +8,25 @@ Now-a-days we live in age of Information Communication and Technology (ICT). For
 <ul>
  <li>Admin Module</li>
   <li>Reporter Module</li>
-   <li>User Module</li>
+   <li>User Module(Visitor)</li>
 </ul>
 Admin Modules
 <ol>
- <li></li>
+ <li>Admin Login</li>
+ <p> Admin can login through login form.</p>
+  <li>Reporter</li>
+ <p> Admin can create add reporter, edit reporter and also delete the reporter</p>
+  <li>Categoty</li>
+ <p> Admin can create add category, edit category and also delete the category.</p>
+  <li>Post</li>
+ <p> Admin can create add post, edit post and also delete the post.</p>
+  <li>Setting</li>
+ <p> Admin can manage the logo and footer section </p>
+  <li>Comment</li>
+ <p>Admin can approved & unapproved.</p>
+<h6>Reporter</h6>
+ <li>Reporter</li>
+ <p>Reporter can login through login form.</p>
 </ol>
 
  The project is developed by using Php and MySQL on the back end. For the front end, we use HTML5, CSS and JS.
